@@ -1,0 +1,40 @@
+
+Sample SprintBoots project can be shown in different stages to introduce various aspects of the framework:
+- Annotations for REST controller
+- Property loading and DI with autowired
+- Repositories + flyway database migration
+- Repository query builder
+- Exception handling
+
+
+To start the sample, start with following set of files:
+- go/go_debug
+- pom.xml
+- directory structure for src/main/java/... and resources
+
+a)
+Create SampleApplication and SampleController. Start with simple helloWorld() method to introduce annotation for RequestMapping and ResponseStatus
+Create SampleConfiguration to get Swagger
+
+b)
+Create SampleProperties and application.properties to show loading and usage of properties. Use autowired annotation in SampleController to inject the
+properties. Use a default string in the helloWorld from the properties.
+
+c)
+Create PersonEntity and db/migration script to create person table
+Introduction to CRUD repository and flyway
+Create method createPerson to show creation of user
+Introduction of ResponseBody
+
+d)
+Introduction to query builder with various possibilities
+Create method /person/.../hello to find a single person (first without null check)
+
+e)
+Show what happens when an unknown person is queried (NP)
+Check for null and throw an exception. Show default exception handling
+Add @ResponseStatus to exception
+
+f)
+Create ExceptionHandlers to group all handler methods.
+Introduce ErrorResponse to group handlers
