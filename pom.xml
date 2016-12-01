@@ -69,8 +69,6 @@
             <version>3.0</version>
         </dependency>
 
-        <!--
-
                 <dependency>
                     <groupId>org.flywaydb</groupId>
                     <artifactId>flyway-core</artifactId>
@@ -85,7 +83,6 @@
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
                 </dependency>
-                -->
     </dependencies>
 
     <dependencyManagement>
@@ -106,7 +103,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-<!--
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
@@ -125,7 +121,6 @@
                 <dependencies>
                 </dependencies>
             </plugin>
-            -->
         </plugins>
     </build>
 
