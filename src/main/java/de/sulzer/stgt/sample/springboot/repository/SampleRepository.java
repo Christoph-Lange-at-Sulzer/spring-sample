@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SampleRepository extends CrudRepository<PersonEntity, Long> {
 
-
+    PersonEntity findByCode(String code);
 
 }

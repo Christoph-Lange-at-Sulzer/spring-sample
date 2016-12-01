@@ -39,4 +39,12 @@ public class SampleController {
 
         return sampleRepository.save(entity);
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path = "/person/{code}/hello", method = RequestMethod.GET)
+    public String helloUser(@PathVariable String code) {
+        PersonEntity entity = sampleRepository.findByCode(code);
+
+        return "Hello " + entity.getFirstname() + " " + entity.getLastname();
+    }
 }
