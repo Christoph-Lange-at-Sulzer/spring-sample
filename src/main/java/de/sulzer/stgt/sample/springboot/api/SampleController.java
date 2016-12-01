@@ -2,6 +2,7 @@ package de.sulzer.stgt.sample.springboot.api;
 
 
 import de.sulzer.stgt.sample.springboot.config.SampleProperties;
+import de.sulzer.stgt.sample.springboot.exception.PersonNotFoundException;
 import de.sulzer.stgt.sample.springboot.persistence.PersonEntity;
 import de.sulzer.stgt.sample.springboot.repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +43,12 @@ public class SampleController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/person/{code}/hello", method = RequestMethod.GET)
-    public String helloUser(@PathVariable String code) {
+    public String helloUser(@PathVariable String code) throws PersonNotFoundException {
         PersonEntity entity = sampleRepository.findByCode(code);
 
+        if (entity == null) {
+            throw new PersonNotFoundException("Person with code " + code + " not found.");
+        }
         return "Hello " + entity.getFirstname() + " " + entity.getLastname();
     }
 }
